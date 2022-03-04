@@ -1,1 +1,28 @@
-<h1>Project 1</h1>
+<!doctype html>
+<html>
+	<head>
+		<title>Pitch Detector</title>
+		<link href='http://fonts.googleapis.com/css?family=Alike' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="./style/style.css">
+	</head>
+	<body>
+		<script src="js/pitch-detection.js"></script>
+		<h1>Target note: A</h1>
+		<p>
+			<button onclick="toggleLiveInput()">use live input</button>
+		</p>
+
+		<div id="detector" class="vague">
+			<div class="pitch"><span id="pitch">--</span>Hz</div>
+			<div class="note"><span id="note">--</span></div>   
+			<canvas id="output" width=300 height=42></canvas>
+			<div id="detune"><span id="detune_amt">--</span><span id="flat">cents &#9837;</span><span id="sharp">cents &#9839;</span></div>
+            
+		</div>
+        <h2>Captured pitch</h2>
+        <div id="captured-pitch"></div>
+        <h2>Detune from target</h2>
+        <div id="detune-from-target"></div>
+        
+	</body>
+</html>
