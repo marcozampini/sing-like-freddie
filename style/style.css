@@ -1,6 +1,68 @@
-body {
-  font: 14pt 'Alike', sans-serif;
+@font-face {
+  font-family: Queen;
+
+  src: url('fonts/QueenInlineGrunge.otf') format('opentype');
+  src: url('fonts/QueenInlineGrunge.ttf') format('truetype');
 }
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+body {
+  overflow: hidden;
+}
+body,
+input,
+button {
+  font-family: 'Alike', sans-serif;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: Queen, Georgia, 'Times New Roman', Times, serif;
+  text-align: center;
+}
+h1 {
+  font-size: 5rem;
+}
+h2 {
+  font-size: 3rem;
+}
+.page {
+  width: 100%;
+  height: 100vh;
+}
+#landing,
+#game {
+  background-color: #00103f;
+  color: white;
+}
+#landing {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+}
+#options {
+  text-align: center;
+}
+#options label,
+#options input {
+  display: block;
+  width: 50rem;
+  margin: 1rem auto;
+  text-align: center;
+}
+#scores {
+  text-align: center;
+}
+
 #note {
   font-size: 164px;
 }

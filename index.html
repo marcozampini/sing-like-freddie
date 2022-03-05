@@ -1,28 +1,74 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
-	<head>
-		<title>Pitch Detector</title>
-		<link href='http://fonts.googleapis.com/css?family=Alike' rel='stylesheet' type='text/css'>
-        <link rel="stylesheet" href="./style/style.css">
-	</head>
-	<body>
-		<script src="js/pitch-detection.js"></script>
-		<h1>Target note: A</h1>
-		<p>
-			<button onclick="toggleLiveInput()">use live input</button>
-		</p>
+  <head>
+    <title>Sing like Freddie !</title>
+    <link
+      href="http://fonts.googleapis.com/css?family=Alike"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link rel="stylesheet" href="./style/style.css" />
+  </head>
+  <body>
+    <section id="landing" class="page">
+      <h1>Sing like Freddie !</h1>
+      <img src="style/images/freddie-1986.png" />
+      <a href="#options">Options</a>
+    </section>
+    <section id="options" class="page">
+      <h2>Options</h2>
+      <form>
+        <label for="choose-songs">Songs to sing</label>
+        <input type="number" name="number-songs" id="choose-songs" value="5" />
+        <label for="choose-style">Choose your style</label>
+        <input type="radio" name="chosen-style" id="choose-style" />
+        <label for="choose-name">Type your name</label>
+        <input type="text" name="choosen-name" id="choose-name" />
 
-		<div id="detector" class="vague">
-			<div class="pitch"><span id="pitch">--</span>Hz</div>
-			<div class="note"><span id="note">--</span></div>   
-			<canvas id="output" width=300 height=42></canvas>
-			<div id="detune"><span id="detune_amt">--</span><span id="flat">cents &#9837;</span><span id="sharp">cents &#9839;</span></div>
-            
-		</div>
-        <h2>Captured pitch</h2>
-        <div id="captured-pitch"></div>
-        <h2>Detune from target</h2>
-        <div id="detune-from-target"></div>
-        
-	</body>
+        <button onclick="location.href='#game'" type="submit">
+          Play the game!
+        </button>
+        <p>(of love)</p>
+      </form>
+	  <a href="#landing">Back to landing page</a>
+    </section>
+    <section id="game" class="page">
+      <h2>Song title</h2>
+      <p>
+        <button onclick="toggleLiveInput()">use live input</button>
+      </p>
+
+      <div id="detector" class="vague">
+        <div class="pitch"><span id="pitch">--</span>Hz</div>
+        <div class="note"><span id="note">--</span></div>
+        <canvas id="output" width="300" height="42"></canvas>
+        <div id="detune">
+          <span id="detune_amt">--</span><span id="flat">cents &#9837;</span
+          ><span id="sharp">cents &#9839;</span>
+        </div>
+      </div>
+      <h2>Captured pitch</h2>
+      <div id="captured-pitch"></div>
+      <h2>Detune from target</h2>
+      <div id="detune-from-target"></div>
+	  <a href="#next-song">Next song</a>
+	  <a href="#scores">Scores</a>
+	  <a href="#landing">Back to landing page</a>
+    </section>
+    <section id="next-song" class="page">
+      <h2>Next song</h2>
+	  <a href="#game">Next song</a>
+	  <a href="#landing">Back to landing page</a>
+    </section>
+    <section id="scores" class="page">
+      <h2>Your score</h2>
+      <p>1872 points</p>
+      <h2>Your courage</h2>
+      <p>327 points</p>
+	  <a href="#options">Play again!</a>
+    </section>
+    <script type="text/javascript" src="js/pitch-detection.js"></script>
+	<script type="text/javascript" src="js/songs.js"></script>
+	<script type="text/javascript" src="js/main.js"></script>
+  </body>
 </html>
