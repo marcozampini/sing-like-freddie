@@ -15,6 +15,7 @@
       <img src="style/images/freddie-1986.png" />
       <a href="#options">Options</a>
     </section>
+
     <section id="options" class="page">
       <h2>Options</h2>
       <form>
@@ -24,20 +25,27 @@
         <input type="radio" name="chosen-style" id="choose-style" />
         <label for="choose-name">Type your name</label>
         <input type="text" name="choosen-name" id="choose-name" />
-
-        <button onclick="location.href='#game'" type="submit">
+        <button class="play-button" onclick="location.href='#game'" type="submit">
           Play the game!
         </button>
         <p>(of love)</p>
       </form>
-	  <a href="#landing">Back to landing page</a>
+      <footer>
+        <a href="#landing">Back to landing page</a>
+      </footer>
     </section>
-    <section id="game" class="page">
-      <h2>Song title</h2>
-      <p>
-        <button onclick="toggleLiveInput()">use live input</button>
-      </p>
 
+    <section id="old-game" class="page">
+      <h2>Song title</h2>
+      <audio controls src="./songs/we-are-the-champions.mp3">
+        Your browser does not support the
+        <code>audio</code> element.
+      </audio>
+      <p>
+        
+        <!--button onclick="toggleLiveInput()">Capture the note</button-->
+      </p>
+      <p class="on-air">Ready?</p>
       <div id="detector" class="vague">
         <div class="pitch"><span id="pitch">--</span>Hz</div>
         <div class="note"><span id="note">--</span></div>
@@ -51,24 +59,35 @@
       <div id="captured-pitch"></div>
       <h2>Detune from target</h2>
       <div id="detune-from-target"></div>
-	  <a href="#next-song">Next song</a>
-	  <a href="#scores">Scores</a>
-	  <a href="#landing">Back to landing page</a>
+      <a href="#next-song">Next song</a>
+      <a href="#scores">Scores</a>
+      <a href="#landing">Back to landing page</a>
+    </section>
+    <section id="game" class="page">
+      <picture class="album-image">
+        <img src="./style/images/albums/news-of-the-world.jpg" alt="News of the world">
+      </picture>
+      <h2>Song title</h2>
+      <h3>Taken from Album title, 1977</h3>
+      <p class="countdown">Get ready...</p>
+      <footer>
+        <a href="#options">Back to options page</a>
+        <a href="#landing">Back to landing page</a>
+      </footer>
     </section>
     <section id="next-song" class="page">
       <h2>Next song</h2>
-	  <a href="#game">Next song</a>
-	  <a href="#landing">Back to landing page</a>
+      <a href="#game">Next song</a>
+      <a href="#landing">Back to landing page</a>
     </section>
     <section id="scores" class="page">
       <h2>Your score</h2>
       <p>1872 points</p>
       <h2>Your courage</h2>
       <p>327 points</p>
-	  <a href="#options">Play again!</a>
+      <a href="#options">Play again!</a>
     </section>
     <script type="text/javascript" src="js/pitch-detection.js"></script>
-	<script type="text/javascript" src="js/songs.js"></script>
-	<script type="text/javascript" src="js/main.js"></script>
+    <script src="js/main.js" type="module"></script>
   </body>
 </html>

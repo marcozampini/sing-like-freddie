@@ -35,19 +35,26 @@ h2 {
   font-size: 3rem;
 }
 .page {
+  position: relative;
   width: 100%;
   height: 100vh;
+}
+.page footer {
+  position: absolute;
+  bottom: 0;
 }
 #landing,
 #game {
   background-color: #00103f;
   color: white;
-}
-#landing {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-evenly;
+}
+#game .album-image img {
+  width: 240px;
+  height: 240px;
 }
 #options {
   text-align: center;
