@@ -13,26 +13,22 @@
   <body>
     <section id="landing" class="page">
       <h1>Sing like Freddie !</h1>
-      <img src="style/images/freddie-1986.png" />
-      <a href="#options">Options</a>
+      <img src="style/images/freddies/freddie-1986.png" />
+      <p>Press ENTER to set up options and play!</p>
     </section>
 
     <section id="options" class="page">
       <h2>Options</h2>
-      <form>
         <label for="choose-songs">Songs to sing</label>
-        <input type="number" name="number-songs" id="choose-songs" value="5" />
+        <input type="number" id="choose-songs" value="5" />
         <label for="choose-style">Choose your style</label>
-        <input type="radio" name="chosen-style" id="choose-style" />
-        <label for="choose-name">Type your name</label>
-        <input type="text" name="choosen-name" id="choose-name" />
-        <button class="play-button" onclick="location.href='#game'" type="submit">
-          Play the game!
-        </button>
+        <input type="radio" id="choose-style" />
+        <label for="player-name">Type your name</label>
+        <input type="text" id="player-name" />
+        <p>Press ENTER to play the game</p>
         <p>(of love)</p>
-      </form>
       <footer>
-        <a href="#landing">Back to landing page</a>
+        <p>Press L to go back to the landing page</p>
       </footer>
     </section>
 
@@ -74,8 +70,7 @@
       <h3>Taken from Album title, 1977</h3>
       <p class="countdown">Get ready...</p>
       <footer>
-        <a href="#options">Back to options page</a>
-        <a href="#landing">Back to landing page</a>
+        <p>Press L to go back to the landing page | O to go back to the options page</p>
       </footer>
     </section>
 

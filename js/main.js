@@ -1,5 +1,5 @@
 import Game from './classes/game.js'
-import Level from './classes/level.js'
+import Round from './classes/round.js'
 import Song from './classes/song.js'
 import Stream from './classes/stream.js'
 
@@ -49,6 +49,48 @@ const songs = [
     4
   ),
 ]
+
+// Options
+const freddieStyles = [
+  { name: 'Break free style', imageUrl: 'freddie-break-free' },
+  { name: '1986 style', imageUrl: 'freddie-1986' },
+]
+/*let songsToSing
+let freddieStyle
+let playerName*/
+
+// Keys
+document.addEventListener('keydown', (event) => {
+  switch (window.location.hash) {
+    case '':
+    case '#':
+    case 'landing':
+      if (event.key === 'Enter') {
+        window.location.hash = '#options'
+      }
+      break
+    case '#options':
+      if (event.key === 'Enter') {
+        window.location.hash = '#game'
+      }
+      if (event.key === 'l') {
+        window.location.hash = ''
+      }
+      break
+    case '#game':
+      if (event.key === 'Enter') {
+        window.location.hash = '#game'
+      }
+      if (event.key === 'l') {
+        window.location.hash = ''
+      }
+      if (event.key === 'o') {
+        window.location.hash = '#options'
+      }
+      break
+  }
+})
+
 let chosenSongIndex = Math.floor(Math.random() * songs.length)
 const song = songs[chosenSongIndex]
 const capturedStream = new Stream(song.targetNote)
