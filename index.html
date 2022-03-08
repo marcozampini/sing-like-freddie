@@ -8,27 +8,51 @@
       type="text/css"
     />
     <link rel="stylesheet" href="./style/style.css" />
-    <link rel="shortcut icon" href="./style/images/favicon.ico" type="image/x-icon">
+    <link
+      rel="shortcut icon"
+      href="./style/images/favicon.ico"
+      type="image/x-icon"
+    />
   </head>
   <body>
     <section id="landing" class="page">
       <h1>Sing like Freddie !</h1>
       <img src="style/images/freddies/freddie-1986.png" />
-      <p>Press ENTER to set up options and play!</p>
+      <a href="#options">Press ENTER to set up options and play!</a>
     </section>
 
     <section id="options" class="page">
       <h2>Options</h2>
-        <label for="choose-songs">Songs to sing</label>
-        <input type="number" id="choose-songs" value="5" />
-        <label for="choose-style">Choose your style</label>
-        <input type="radio" id="choose-style" />
-        <label for="player-name">Type your name</label>
-        <input type="text" id="player-name" />
+      <form>
+        <div>
+          <label for="player-name">Type your name</label>
+          <input type="text" id="player-name" value=""/>
+        </div>
+        <div>
+          <label for="number-rounds">Number of rounds</label>
+          <input type="number" id="number-rounds" value="5" />
+        </div>
+        <div>
+          <input
+            type="radio"
+            id="freddie-1986"
+            name="freddie-style"
+            value="freddie-1986"
+          />
+          <label for="freddie-1986">1986 style</label
+          ><input
+            type="radio"
+            id="freddie-break-free"
+            name="freddie-style"
+            value="freddie-break-free"
+          />
+          <label for="freddie-break-free">Break Free style</label>
+        </div>
         <p>Press ENTER to play the game</p>
         <p>(of love)</p>
+      </form>
       <footer>
-        <p>Press L to go back to the landing page</p>
+        <a href="#">Press L to go back to the landing page</a>
       </footer>
     </section>
 
@@ -39,7 +63,6 @@
         <code>audio</code> element.
       </audio>
       <p>
-        
         <!--button onclick="toggleLiveInput()">Capture the note</button-->
       </p>
       <p class="on-air">Ready?</p>
@@ -65,12 +88,13 @@
       <h2>Song title</h2>
       <picture class="queen-singing">
         <!--img src="./style/images/albums/news-of-the-world.jpg" alt="News of the world"-->
-        <img src="./style/images/queen-singing.gif" alt="Queen singing">
+        <img src="./style/images/queen-singing.gif" alt="Queen singing" />
       </picture>
       <h3>Taken from Album title, 1977</h3>
       <p class="countdown">Get ready...</p>
       <footer>
-        <p>Press L to go back to the landing page | O to go back to the options page</p>
+        <a href="#">Press L to go back to the landing page</a> |
+        <a href="#options">Press O to go back to the options page</a>
       </footer>
     </section>
 

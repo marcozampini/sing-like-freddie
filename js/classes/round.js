@@ -1,8 +1,11 @@
 export default class Round {
-  constructor(name, song) {
-    this.name = name
+  constructor(id, song) {
+    this.id = id
     this.song = song
     this.score = 0
   }
-  playTheRound() {}
+  playTheRound() {
+    this.song.loadSong()
+    this.song.playSample()
+  }
 }

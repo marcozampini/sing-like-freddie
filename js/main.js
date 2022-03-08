@@ -4,6 +4,7 @@ import Song from './classes/song.js'
 import Stream from './classes/stream.js'
 
 const songs = [
+  /*
   new Song(
     'We Are The Champions',
     'Freddie Mercury / Brian May',
@@ -25,18 +26,18 @@ const songs = [
     13.8,
     'D',
     4
-  ),
+  ),*/
   new Song(
     'Don’t Stop Me Now',
     'Freddie Mercury',
     'Jazz',
     1979,
     'don-t-stop-me-now.mp3',
-    42.1,
-    13.8,
-    'D',
+    78.3,
+    7.66,
+    'F',
     4
-  ),
+  ) /*
   new Song(
     'Bohemian Rhapsody',
     'Freddie Mercury',
@@ -47,7 +48,7 @@ const songs = [
     13.8,
     'D',
     4
-  ),
+  ),*/,
 ]
 
 // Options
@@ -72,6 +73,22 @@ document.addEventListener('keydown', (event) => {
     case '#options':
       if (event.key === 'Enter') {
         window.location.hash = '#game'
+        let playerName = document.querySelector('#options #player-name').value
+        let numberOfRounds = document.querySelector(
+          '#options #number-rounds'
+        ).value
+        let freddieStyle = document.querySelector(
+          '#options input[name="freddie-style"]:checked'
+        ).value
+        console.log(playerName)
+        console.log(numberOfRounds)
+        console.log(freddieStyle)
+        let chosenSongIndex = Math.floor(Math.random() * songs.length)
+        const song = songs[chosenSongIndex]
+        const capturedStream = new Stream(song.targetNote)
+        console.log(capturedStream)
+        const round = new Round(1, song)
+        round.playTheRound()
       }
       if (event.key === 'l') {
         window.location.hash = ''
@@ -90,13 +107,6 @@ document.addEventListener('keydown', (event) => {
       break
   }
 })
-
-let chosenSongIndex = Math.floor(Math.random() * songs.length)
-const song = songs[chosenSongIndex]
-const capturedStream = new Stream(song.targetNote)
-console.log(capturedStream)
-song.loadSong()
-song.playSample()
 
 window.AudioContext = window.AudioContext || window.webkitAudioContext
 

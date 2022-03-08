@@ -1,9 +1,9 @@
 export default class Game {
-  constructor(numberOfRounds = 5, freddieStyle = 1986, playerName = 'Freddie') {
+  constructor(playerName, numberOfRounds, freddieStyle) {
+    this.playerName = playerName
     this.numberOfRounds = numberOfRounds
     this.freddieStyle = freddieStyle
-    this.playerName = playerName
     this.score = 0
   }
-  //playTheGame() {}
+  playTheGame() {}
 }
