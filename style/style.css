@@ -17,7 +17,7 @@ body {
 body,
 input,
 button {
-  font-family: 'Alike', sans-serif;
+  font-family: Queen, Georgia, 'Times New Roman', Times, serif;
 }
 h1,
 h2,
@@ -52,9 +52,9 @@ h2 {
   align-items: center;
   justify-content: space-evenly;
 }
-#game .album-image img {
-  width: 240px;
-  height: 240px;
+#game .queen-singing img {
+  width: 357px;
+  height: 200px;
 }
 #options {
   text-align: center;

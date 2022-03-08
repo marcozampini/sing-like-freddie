@@ -4,4 +4,5 @@ export default class Level {
     this.song = song
     this.score = 0
   }
+  playTheLevel() {}
 }

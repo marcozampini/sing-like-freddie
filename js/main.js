@@ -1,11 +1,14 @@
 import Game from './classes/game.js'
-import Level from './classes/levels.js'
-import Song from './classes/songs.js'
+import Level from './classes/level.js'
+import Song from './classes/song.js'
+import Stream from './classes/stream.js'
 
 const songs = [
   new Song(
     'We Are The Champions',
     'Freddie Mercury / Brian May',
+    'News Of The World',
+    1977,
     'we-are-the-champions.mp3',
     14.4,
     19.9,
@@ -13,20 +16,45 @@ const songs = [
     4
   ),
   new Song(
+    'Somebody to love',
+    'Freddie Mercury',
+    'A Day At The Races',
+    1976,
+    'somebody-to-love.mp3',
+    42.1,
+    13.8,
+    'D',
+    4
+  ),
+  new Song(
+    'Don’t Stop Me Now',
+    'Freddie Mercury',
+    'Jazz',
+    1979,
+    'don-t-stop-me-now.mp3',
+    42.1,
+    13.8,
+    'D',
+    4
+  ),
+  new Song(
     'Bohemian Rhapsody',
     'Freddie Mercury',
+    'A Night At The Opera',
+    1975,
     'bohemian-rhapsody.mp3',
-    14.4,
-    14.9,
+    42.1,
+    13.8,
     'D',
     4
   ),
 ]
-
-const song = songs[0]
-document.querySelector('#game h2').textContent = song.title
-const songSample = document.querySelector('audio')
-songSample.src = `./songs/${song.sampleUrl}`
+let chosenSongIndex = Math.floor(Math.random() * songs.length)
+const song = songs[chosenSongIndex]
+const capturedStream = new Stream(song.targetNote)
+console.log(capturedStream)
+song.loadSong()
+song.playSample()
 
 window.AudioContext = window.AudioContext || window.webkitAudioContext
 
@@ -48,37 +76,4 @@ window.onload = function () {
   noteElem = document.getElementById('note')
   detuneElem = document.getElementById('detune')
   detuneAmount = document.getElementById('detune_amt')
-
-  /*
-  // Play the song
-  songSample.currentTime = song.sampleStartsAt
-
-  gameSection = document.querySelector('#game')
-
-  songSample.play()
-  setTimeout(() => {
-    document.querySelector('.on-air').textContent = '5'
-    setTimeout(() => {
-      document.querySelector('.on-air').textContent = '4'
-    }, 1000)
-    setTimeout(() => {
-      document.querySelector('.on-air').textContent = '3'
-    }, 2000)
-    setTimeout(() => {
-      document.querySelector('.on-air').textContent = '2'
-    }, 3000)
-    setTimeout(() => {
-      document.querySelector('.on-air').textContent = '1'
-    }, 4000)
-    setTimeout(() => {
-      //Capture the mic
-      songSample.pause()
-      document.querySelector('.on-air').textContent = 'On air'
-      toggleLiveInput()
-      setTimeout(() => {
-        audioContext.close()
-      }, 3000)
-    }, 5000)
-  }, song.sampleEndsAfter * 1000 - 5000)
-  */
 }
