@@ -1,5 +1,5 @@
-function pitchdetect(targetFreq) {
-  console.log('function pitchdetect launched')
+function pitchdetect(targetFreq, duration) {
+  let score = 0
   var analyser,
     animationLoop,
     audioContext,
@@ -142,12 +142,16 @@ function pitchdetect(targetFreq) {
     if (targetFreq - pitch > 0) {
       if (pitch / targetFreq > 0.97) {
         document.querySelector('.target-freq').textContent = 'Good (low)'
+        score++
+        document.querySelector('.live-score').textContent = score
       } else {
         document.querySelector('.target-freq').textContent = 'Too low'
       }
     } else {
       if (targetFreq / pitch > 0.97) {
         document.querySelector('.target-freq').textContent = 'Good (high)'
+        score++
+        document.querySelector('.live-score').textContent = score
       } else {
         document.querySelector('.target-freq').textContent = 'Too high'
       }
@@ -201,4 +205,8 @@ function pitchdetect(targetFreq) {
       return console.log('error: ' + e)
     }
   )
+  setTimeout(() => {
+    audioContext.close()
+    return score
+  }, 5000)
 }
