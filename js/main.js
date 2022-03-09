@@ -1,65 +1,6 @@
 import Game from './classes/game.js'
 import Round from './classes/round.js'
-import Song from './classes/song.js'
-
-const songs = [
-  new Song(
-    'We Are The Champions',
-    'Freddie Mercury / Brian May',
-    'News Of The World',
-    1977,
-    'we-are-the-champions.mp3',
-    14.4,
-    19.9,
-    'F',
-    349.2
-  ) /*
-  new Song(
-    'Somebody to love',
-    'Freddie Mercury',
-    'A Day At The Races',
-    1976,
-    'somebody-to-love.mp3',
-    42.1,
-    13.8,
-    'D',
-    220
-  ),*/,
-  /*new Song(
-    'Don’t Stop Me Now',
-    'Freddie Mercury',
-    'Jazz',
-    1979,
-    'don-t-stop-me-now.mp3',
-    78.3,
-    7.66,
-    'F',
-    220
-  ),
-  new Song(
-    'Who Wants To Live Forever',
-    'Brian May',
-    'A Kind Of Magic',
-    1986,
-    'who-wants-to-live-forever.mp3',
-    78.3,
-    7.66,
-    'F',
-    220
-  ) 
-  new Song(
-    'Bohemian Rhapsody',
-    'Freddie Mercury',
-    'A Night At The Opera',
-    1975,
-    'bohemian-rhapsody.mp3',
-    42.1,
-    13.8,
-    'D',
-    220
-  ),*/
-  ,
-]
+import songs from './config.js'
 
 // Ask the permission to use the mic to the browser
 /*navigator.mediaDevices.getUserMedia({
@@ -80,7 +21,12 @@ const freddieStyles = [
   { name: '1986 style', imageUrl: 'freddie-1986' },
 ]
 
-// Sections and templates
+// Sections, elements and templates
+const playerNameElement = document.querySelector('#options #player-name')
+const numberOfRoundsElement = document.querySelector('#options #number-rounds')
+const freddieStyleElement = document.querySelector(
+  '#options input[name="freddie-style"]:checked'
+)
 const roundTemplate = document.querySelector('#round-template')
 const scoresSection = document.querySelector('#scores')
 
@@ -98,13 +44,10 @@ document.addEventListener('keydown', (event) => {
     // Set up options, create the game and play the first round
     case '#options':
       if (event.key === 'Enter') {
-        let playerName = document.querySelector('#options #player-name').value
-        let numberOfRounds = document.querySelector(
-          '#options #number-rounds'
-        ).value
-        let freddieStyle = document.querySelector(
-          '#options input[name="freddie-style"]:checked'
-        ).value
+        let playerName = playerNameElement.value
+        let numberOfRounds = numberOfRoundsElement.value
+        let freddieStyle = freddieStyleElement.value
+
         const game = new Game(playerName, numberOfRounds, freddieStyle)
 
         // Only one song for the moment
