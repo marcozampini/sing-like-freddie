@@ -26,7 +26,7 @@
       <form>
         <div>
           <label for="player-name">Type your name</label>
-          <input type="text" id="player-name" value=""/>
+          <input type="text" id="player-name" value="" />
         </div>
         <div>
           <label for="number-rounds">Number of rounds</label>
@@ -48,7 +48,7 @@
           />
           <label for="freddie-break-free">Break Free style</label>
         </div>
-        <p>Press ENTER to play the game</p>
+        <a href="#round">Press ENTER to play the game</a>
         <p>(of love)</p>
       </form>
       <footer>
@@ -56,14 +56,14 @@
       </footer>
     </section>
 
-    <section id="old-game" class="page">
+    <!--section id="old-game" class="page">
       <h2>Song title</h2>
       <audio controls src="./songs/we-are-the-champions.mp3">
         Your browser does not support the
         <code>audio</code> element.
       </audio>
       <p>
-        <!--button onclick="toggleLiveInput()">Capture the note</button-->
+        <button onclick="toggleLiveInput()">Capture the note</button>
       </p>
       <p class="on-air">Ready?</p>
       <div id="detector" class="vague">
@@ -82,27 +82,9 @@
       <a href="#next-song">Next song</a>
       <a href="#scores">Scores</a>
       <a href="#landing">Back to landing page</a>
-    </section>
+    </section-->
 
-    <section id="game" class="page">
-      <h2>Song title</h2>
-      <picture class="queen-singing">
-        <!--img src="./style/images/albums/news-of-the-world.jpg" alt="News of the world"-->
-        <img src="./style/images/queen-singing.gif" alt="Queen singing" />
-      </picture>
-      <h3>Taken from Album title, 1977</h3>
-      <p class="countdown">Get ready...</p>
-      <footer>
-        <a href="#">Press L to go back to the landing page</a> |
-        <a href="#options">Press O to go back to the options page</a>
-      </footer>
-    </section>
-
-    <section id="next-song" class="page">
-      <h2>Next song</h2>
-      <a href="#game">Next song</a>
-      <a href="#landing">Back to landing page</a>
-    </section>
+    <!-- Add round template here -->
 
     <section id="scores" class="page">
       <h2>Your score</h2>
@@ -111,7 +93,33 @@
       <p>327 points</p>
       <a href="#options">Play again!</a>
     </section>
-
+    <script src="js/pitchdetect2.js"></script>
     <script src="js/main.js" type="module"></script>
   </body>
+  <template id="round-template">
+    <section class="page round">
+      <header>
+        <h2>Song title</h2>
+        <h3>Taken from Album title, Year</h3>
+      </header>
+      <main>
+        <div class="queen-singing playing">
+          <picture>
+            <img src="./style/images/queen-singing.gif" alt="Queen singing" />
+          </picture>
+          <p class="countdown">Get ready while Queen are singing...</p>
+        </div>
+        <div class="player-singing">
+          <p>Note: <span class="pitch"></span></p>
+          <p>Frequency: <span class="freq"></span></p>
+          <p>Good or bad? <span class="target-freq"></span></p>
+          <canvas width="640" height="120"></canvas>
+        </div>
+      </main>
+      <footer>
+        <a href="#">Press L to go back to the landing page</a> |
+        <a href="#options">Press O to go back to the options page</a>
+      </footer>
+    </section>
+  </template>
 </html>

@@ -1,10 +1,8 @@
 import Game from './classes/game.js'
 import Round from './classes/round.js'
 import Song from './classes/song.js'
-import Stream from './classes/stream.js'
 
 const songs = [
-  /*
   new Song(
     'We Are The Champions',
     'Freddie Mercury / Brian May',
@@ -14,8 +12,8 @@ const songs = [
     14.4,
     19.9,
     'F',
-    4
-  ),
+    349.2
+  ) /*
   new Song(
     'Somebody to love',
     'Freddie Mercury',
@@ -25,9 +23,9 @@ const songs = [
     42.1,
     13.8,
     'D',
-    4
-  ),*/
-  new Song(
+    220
+  ),*/,
+  /*new Song(
     'Don’t Stop Me Now',
     'Freddie Mercury',
     'Jazz',
@@ -36,8 +34,19 @@ const songs = [
     78.3,
     7.66,
     'F',
-    4
-  ) /*
+    220
+  ),
+  new Song(
+    'Who Wants To Live Forever',
+    'Brian May',
+    'A Kind Of Magic',
+    1986,
+    'who-wants-to-live-forever.mp3',
+    78.3,
+    7.66,
+    'F',
+    220
+  ) 
   new Song(
     'Bohemian Rhapsody',
     'Freddie Mercury',
@@ -47,18 +56,33 @@ const songs = [
     42.1,
     13.8,
     'D',
-    4
-  ),*/,
+    220
+  ),*/
+  ,
 ]
+
+// Ask the permission to use the mic to the browser
+/*navigator.mediaDevices.getUserMedia({
+  audio: {
+    mandatory: {
+      googEchoCancellation: 'false',
+      googAutoGainControl: 'false',
+      googNoiseSuppression: 'false',
+      googHighpassFilter: 'false',
+    },
+    optional: [],
+  },
+})*/
 
 // Options
 const freddieStyles = [
   { name: 'Break free style', imageUrl: 'freddie-break-free' },
   { name: '1986 style', imageUrl: 'freddie-1986' },
 ]
-/*let songsToSing
-let freddieStyle
-let playerName*/
+
+// Sections and templates
+const roundTemplate = document.querySelector('#round-template')
+const scoresSection = document.querySelector('#scores')
 
 // Keys
 document.addEventListener('keydown', (event) => {
@@ -70,9 +94,10 @@ document.addEventListener('keydown', (event) => {
         window.location.hash = '#options'
       }
       break
+
+    // Set up options, create the game and play the first round
     case '#options':
       if (event.key === 'Enter') {
-        window.location.hash = '#game'
         let playerName = document.querySelector('#options #player-name').value
         let numberOfRounds = document.querySelector(
           '#options #number-rounds'
@@ -80,23 +105,27 @@ document.addEventListener('keydown', (event) => {
         let freddieStyle = document.querySelector(
           '#options input[name="freddie-style"]:checked'
         ).value
-        console.log(playerName)
-        console.log(numberOfRounds)
-        console.log(freddieStyle)
+        const game = new Game(playerName, numberOfRounds, freddieStyle)
+
+        // Only one song for the moment
         let chosenSongIndex = Math.floor(Math.random() * songs.length)
         const song = songs[chosenSongIndex]
-        const capturedStream = new Stream(song.targetNote)
-        console.log(capturedStream)
-        const round = new Round(1, song)
-        round.playTheRound()
+
+        const round = new Round(1, song, roundTemplate, scoresSection)
+        round.loadRound()
+
+        window.location.hash = 'round-1'
+
+        round.playRound()
+        game.rounds.push()
       }
       if (event.key === 'l') {
         window.location.hash = ''
       }
       break
-    case '#game':
+    case '#round-1':
       if (event.key === 'Enter') {
-        window.location.hash = '#game'
+        window.location.hash = '#round-1'
       }
       if (event.key === 'l') {
         window.location.hash = ''
@@ -107,25 +136,3 @@ document.addEventListener('keydown', (event) => {
       break
   }
 })
-
-window.AudioContext = window.AudioContext || window.webkitAudioContext
-
-var audioContext = null
-var isPlaying = false
-var sourceNode = null
-var analyser = null
-var theBuffer = null
-
-var mediaStreamSource = null
-var detectorElem, pitchElem, noteElem, detuneElem, detuneAmount
-
-window.onload = function () {
-  audioContext = new AudioContext()
-
-  detectorElem = document.getElementById('detector')
-
-  pitchElem = document.getElementById('pitch')
-  noteElem = document.getElementById('note')
-  detuneElem = document.getElementById('detune')
-  detuneAmount = document.getElementById('detune_amt')
-}

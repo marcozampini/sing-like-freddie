@@ -3,7 +3,8 @@ export default class Game {
     this.playerName = playerName
     this.numberOfRounds = numberOfRounds
     this.freddieStyle = freddieStyle
+    this.rounds = []
     this.score = 0
   }
-  playTheGame() {}
+  playGame() {}
 }

@@ -8,7 +8,7 @@ export default class Song {
     sampleStartsAt,
     sampleDuration,
     targetNote,
-    targetOctave
+    targetFrequency
   ) {
     this.title = title
     this.album = album
@@ -19,13 +19,13 @@ export default class Song {
     this.sampleStartsAt = sampleStartsAt
     this.sampleDuration = sampleDuration
     this.targetNote = targetNote
-    this.targetOctave = targetOctave
+    this.targetFrequency = targetFrequency
   }
 
   loadSong() {
-    document.querySelector('#game h2').textContent = this.title
+    document.querySelector('.round.page h2').textContent = this.title
     document.querySelector(
-      '#game h3'
+      '.round.page h3'
     ).textContent = `Taken from ${this.album}, ${this.year}`
   }
 

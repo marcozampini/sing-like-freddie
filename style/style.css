@@ -30,10 +30,16 @@ h6 {
   text-align: center;
 }
 h1 {
-  font-size: 5rem;
+  font-size: 6rem;
 }
 h2 {
+  font-size: 4.5rem;
+}
+h3 {
   font-size: 3rem;
+}
+a {
+  text-decoration: none;
 }
 .page {
   position: relative;
@@ -47,11 +53,8 @@ h2 {
   text-align: center;
   font-size: 1rem;
 }
-.page footer a {
-  text-decoration: none;
-}
 #landing,
-#game {
+.round {
   background-color: #00103f;
   color: white;
   display: flex;
@@ -59,7 +62,7 @@ h2 {
   align-items: center;
   justify-content: space-evenly;
 }
-#game .queen-singing img {
+.round .queen-singing img {
   width: 357px;
   height: 200px;
 }
