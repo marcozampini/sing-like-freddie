@@ -3,16 +3,18 @@
   <head>
     <title>Sing like Freddie !</title>
     <link
-      href="http://fonts.googleapis.com/css?family=Alike"
-      rel="stylesheet"
-      type="text/css"
+    href="http://fonts.googleapis.com/css?family=Alike"
+    rel="stylesheet"
+    type="text/css"
     />
     <link rel="stylesheet" href="./style/style.css" />
     <link
-      rel="shortcut icon"
-      href="./style/images/favicon.ico"
-      type="image/x-icon"
+    rel="shortcut icon"
+    href="./style/images/favicon.ico"
+    type="image/x-icon"
     />
+    <script src="js/pitchdetect2.js" type="module"></script>
+    <script src="js/main.js" type="module"></script>
   </head>
   <body>
     <section id="landing" class="page">
@@ -21,52 +23,33 @@
       <a href="#options">Press ENTER to set up options and play!</a>
     </section>
 
-    <section id="options" class="page">
-      <h2>Options</h2>
-      <form>
-        <div>
-          <label for="player-name">Type your name</label>
-          <input type="text" id="player-name" value="" />
-        </div>
-        <div>
-          <label for="number-rounds">Number of rounds</label>
-          <input type="number" id="number-rounds" value="5" />
-        </div>
-        <div>
-          <input
-            type="radio"
-            id="freddie-1986"
-            name="freddie-style"
-            value="freddie-1986"
-          />
-          <label for="freddie-1986">1986 style</label
-          ><input
-            type="radio"
-            id="freddie-break-free"
-            name="freddie-style"
-            value="freddie-break-free"
-          />
-          <label for="freddie-break-free">Break Free style</label>
-        </div>
-        <a href="#round">Press ENTER to play the game</a>
-        <p>(of love)</p>
-      </form>
+    <section id="your-name" class="page">
+      <h2>Type your name</h2>
+      <input type="text" id="player-name" value="" />
+      <a href="#your-style">Press ENTER to submit</a>
+    </section>
+    <section id="your-style" class="page">
+      <h2>Choose your style</h2>
+      <div class="styles">
+        <!-- Style template(s) here -->
+      </div>
+    </section>
+    <section id="ready-to-play" class="page">
+      <h2>Ready to play the game?</h2>
+      <p>(of love)</p>
+      <a href="#round-0">Press ENTER to play the game</a>
       <footer>
         <a href="#">Press L to go back to the landing page</a>
       </footer>
     </section>
 
-    <!-- Add round template here -->
+    <!-- Round template(s) here -->
 
     <section id="scores" class="page">
-      <h2>Your score</h2>
-      <p>1872 points</p>
-      <h2>Your courage</h2>
-      <p>327 points</p>
+      <h2>Your score is</h2>
+      <ul></ul>
       <a href="">Play again!</a>
     </section>
-    <script src="js/pitchdetect2.js"></script>
-    <script src="js/main.js" type="module"></script>
   </body>
   <template id="round-template">
     <section class="page round">
@@ -85,7 +68,7 @@
           <p>Note: <span class="pitch"></span></p>
           <p>Frequency: <span class="freq"></span></p>
           <p>Good or bad? <span class="target-freq"></span></p>
-          <p>Score: <span class="live-score"></span></p>
+          <p>Score: <span class="live-score">0</span></p>
           <canvas width="640" height="120"></canvas>
         </div>
       </main>
@@ -94,5 +77,15 @@
         <a href="#options">Press O to go back to the options page</a>
       </footer>
     </section>
+  </template>
+  <template id="style-template">
+    <div class="freddie-style">
+      <h3>Style name</h3>
+      <picture>
+        <img src="./style/images/freddies/freddie-1986.png" alt="Style name">
+      </picture>
+      <p>Type Key</p>
+      <p>to select this style</p>
+    </div>
   </template>
 </html>

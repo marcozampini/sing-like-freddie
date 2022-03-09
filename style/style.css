@@ -46,6 +46,14 @@ a {
   width: 100%;
   height: 100vh;
 }
+.page:nth-of-type(odd) {
+  background-color: #00103f;
+  color: white;
+}
+.page:nth-of-type(even) {
+  background-color: white;
+  color: #00103f;
+}
 .page footer {
   position: absolute;
   bottom: 0;
@@ -55,8 +63,6 @@ a {
 }
 #landing,
 .round {
-  background-color: #00103f;
-  color: white;
   display: flex;
   flex-direction: column;
   align-items: center;

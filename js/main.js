@@ -1,6 +1,7 @@
+import StyleSelection from './classes/style-selection.js'
 import Game from './classes/game.js'
 import Round from './classes/round.js'
-import songs from './config.js'
+import config from './config.js'
 
 // Ask the permission to use the mic to the browser
 /*navigator.mediaDevices.getUserMedia({
@@ -15,18 +16,14 @@ import songs from './config.js'
   },
 })*/
 
-// Options
-const freddieStyles = [
-  { name: 'Break free style', imageUrl: 'freddie-break-free' },
-  { name: '1986 style', imageUrl: 'freddie-1986' },
-]
-
 // Sections, elements and templates
-const playerNameElement = document.querySelector('#options #player-name')
-const numberOfRoundsElement = document.querySelector('#options #number-rounds')
-const freddieStyleElement = document.querySelector(
-  '#options input[name="freddie-style"]:checked'
-)
+const playerNameElement = document.querySelector('#your-name #player-name')
+let playerName = ''
+
+const freddieStyles = new StyleSelection(config.styles)
+freddieStyles.loadStyles()
+let freddieStyle = ''
+
 const roundTemplate = document.querySelector('#round-template')
 const scoresSection = document.querySelector('#scores')
 
@@ -37,27 +34,44 @@ document.addEventListener('keydown', (event) => {
     case '#':
     case 'landing':
       if (event.key === 'Enter') {
-        window.location.hash = '#options'
+        window.location.hash = '#your-name'
       }
       break
-
+    case '#your-name':
+      document.querySelector('#player-name').focus()
+      if (event.key === 'Enter') {
+        playerName = playerNameElement.value
+        window.location.hash = '#your-style'
+      }
+      break
+    case '#your-style':
+      if (event.key === 'a' || event.key === 'b') {
+        window.location.hash = '#ready-to-play'
+      }
+      break
+    case '#ready-to-play':
+      const game = new Game(playerName, freddieStyle)
+      setTimeout(() => {
+        window.location.hash = '#round-0'
+      }, 5000)
     // Set up options, create the game and play the first round
     case '#options':
       if (event.key === 'Enter') {
-        let playerName = playerNameElement.value
         let numberOfRounds = numberOfRoundsElement.value
-        let freddieStyle = freddieStyleElement.value
+        //let freddieStyle = freddieStyleElement.value
+        let freddieStyle = 'freddie-1986'
 
-        const game = new Game(playerName, numberOfRounds, freddieStyle)
+        const songsIndexes = game.songsOrder(config.songs)
 
-        // Only one song for the moment
-        let chosenSongIndex = Math.floor(Math.random() * songs.length)
-        const song = songs[chosenSongIndex]
-
-        const round = new Round(1, song, roundTemplate, scoresSection)
+        const round = new Round(
+          0,
+          config.songs[songsIndexes[0]],
+          roundTemplate,
+          scoresSection
+        )
         round.loadRound()
 
-        window.location.hash = 'round-1'
+        window.location.hash = 'round-0'
 
         round.playRound()
         game.rounds.push()
@@ -66,9 +80,9 @@ document.addEventListener('keydown', (event) => {
         window.location.hash = ''
       }
       break
-    case '#round-1':
+    case '#round-0':
       if (event.key === 'Enter') {
-        window.location.hash = '#round-1'
+        window.location.hash = '#round-0'
       }
       if (event.key === 'l') {
         window.location.hash = ''

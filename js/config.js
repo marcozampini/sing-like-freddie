@@ -1,4 +1,5 @@
 import Song from './classes/song.js'
+import Style from './classes/style.js'
 
 const songs = [
   new Song(
@@ -57,5 +58,11 @@ const songs = [
     220
   ),
 ]
+const styles = [
+  new Style('a', '1986 style', 'freddie-1986.png'),
+  new Style('b', 'Break free style', 'freddie-break-free.png'),
+  new Style('c', 'King style', 'freddie-king.png'),
+]
 
-export default songs
+const config = { songs, styles }
+export default config
