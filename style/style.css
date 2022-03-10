@@ -12,7 +12,7 @@
   scroll-behavior: smooth;
 }
 body {
-  /*overflow: hidden;*/
+  overflow: hidden;
 }
 body,
 input,
@@ -62,7 +62,7 @@ a {
   font-size: 1rem;
 }
 #landing,
-.round,
+#round,
 #your-name,
 #your-style {
   display: flex;
@@ -70,7 +70,7 @@ a {
   align-items: center;
   justify-content: space-evenly;
 }
-.round .queen-singing img {
+#round .queen-singing img {
   width: 357px;
   height: 200px;
 }

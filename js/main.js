@@ -34,9 +34,6 @@ const freddieStyles = new StyleSelection(
 freddieStyles.loadStyles()
 let freddieStyle = null
 
-const roundTemplate = document.querySelector('#round-template')
-const scoresSection = document.querySelector('#scores')
-
 let game = new Game()
 let round
 
@@ -78,9 +75,7 @@ document.addEventListener('keydown', (event) => {
       if (event.key === 'Enter') {
         round = new Round(
           game.currentRound,
-          data.songs[songsIndexes[game.currentRound]],
-          roundTemplate,
-          scoresSection
+          data.songs[songsIndexes[game.currentRound]]
         )
         console.log(round)
         round.loadRound()
@@ -88,7 +83,6 @@ document.addEventListener('keydown', (event) => {
 
         round.playRound()
         game.rounds.push(round)
-        console.log('game', game)
       }
       break
     case '#round':

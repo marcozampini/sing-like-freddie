@@ -23,9 +23,9 @@ export default class Song {
   }
 
   loadSong() {
-    document.querySelector('.round.page h2').textContent = this.title
+    document.querySelector('#round h2').textContent = this.title
     document.querySelector(
-      '.round.page h3'
+      '#round h3'
     ).textContent = `Taken from ${this.album}, ${this.year}`
   }
 

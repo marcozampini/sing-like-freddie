@@ -44,17 +44,7 @@
         <a href="#">Press ZERO to go back to the landing page</a>
       </footer>
     </section>
-
-    <!-- Round template(s) here -->
-
-    <section id="scores" class="page">
-      <h2>Your score is <span class="game-score"></span></h2>
-      <ul></ul>
-      <a href="">Play again!</a>
-    </section>
-  </body>
-  <template id="round-template">
-    <section class="page round">
+    <section id="round" class="page">
       <header>
         <h2>Song title</h2>
         <h3>Taken from Album title, Year</h3>
@@ -67,8 +57,8 @@
           <p class="countdown">Get ready while Queen are singing...</p>
         </div>
         <div class="player-singing">
-          <p>Your note: <span class="pitch"></span>Frequency: <span class="freq"></span></p>
-          <p><span class="target-freq"></span></p>
+          <p>Your note: <span class="pitch"></span> Frequency: <span class="freq">000.00</span></p>
+          <p>Target note: <span class="pitch"></span> Target frequency: <span class="target-freq">000.00</span></p>
           <p>Score: <span class="live-score">0</span></p>
           <canvas width="640" height="120"></canvas>
         </div>
@@ -78,7 +68,13 @@
         <a href="#scores">Press S to stop and see your score</a>
       </footer>
     </section>
-  </template>
+
+    <section id="scores" class="page">
+      <h2>Your score is <span class="game-score"></span></h2>
+      <ul></ul>
+      <a href="">Play again!</a>
+    </section>
+  </body>
   <template id="style-template">
     <div class="freddie-style">
       <h3>Style name</h3>
