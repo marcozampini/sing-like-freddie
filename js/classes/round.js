@@ -12,7 +12,6 @@ export default class Round {
     document.body.insertBefore(clone, this.scoresSection)
   }
   playRound() {
-    console.log(this.song)
     this.song.loadSong()
     this.song.playSample()
 

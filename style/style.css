@@ -62,7 +62,9 @@ a {
   font-size: 1rem;
 }
 #landing,
-.round {
+.round,
+#your-name,
+#your-style {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -72,16 +74,24 @@ a {
   width: 357px;
   height: 200px;
 }
-#options {
+#your-name,
+#your-style {
   text-align: center;
 }
-#options label,
-#options input {
+#your-name input {
   display: block;
   width: 50rem;
   margin: 1rem auto;
   text-align: center;
 }
+#your-style .styles {
+  display: flex;
+  flex-direction: row;
+}
+#your-style .freddie-style picture img {
+  max-height: 20vh;
+}
+
 #scores {
   text-align: center;
 }

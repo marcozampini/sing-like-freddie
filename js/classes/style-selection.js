@@ -1,14 +1,14 @@
 export default class StyleSelection {
-  constructor(styles) {
+  constructor(styles, styleTemplate, stylesSection) {
     this.styles = styles
+    this.styleTemplate = styleTemplate
+    this.stylesSection = stylesSection
   }
 
   loadStyles() {
-    let styleTemplate = document.querySelector('#style-template')
-    let stylesSection = document.querySelector('#your-style .styles')
-    console.log(stylesSection)
     for (let i = 0; i < this.styles.length; i++) {
-      const clone = styleTemplate.content.cloneNode(true)
+      const clone = this.styleTemplate.content.cloneNode(true)
+      clone.querySelector('.freddie-style').dataset.id = i
       clone.querySelector('h3').textContent = this.styles[i].name
       clone.querySelector(
         'img'
@@ -16,22 +16,7 @@ export default class StyleSelection {
       clone.querySelector(
         'p'
       ).textContent = `Type ${this.styles[i].activationKey}`
-      stylesSection.appendChild(clone)
+      this.stylesSection.appendChild(clone)
     }
-    /*
-  const clone = styleTemplate.content.cloneNode(true)
-  clone.querySelector('section').setAttribute('id', `round-${this.id}`)
-  document.body.insertBefore(clone, this.scoresSection)*/
   }
 }
-/*
-<template id="style-template">
-<div class="freddie-style">
-  <h3>Style name</h3>
-  <picture>
-    <img src="./style/images/freddies/freddie-1986.png" alt="Style name">
-  </picture>
-  <p>Type Key to choose</p>
-</div>
-</template>
-*/
