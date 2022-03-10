@@ -38,6 +38,9 @@ export default function pitchdetect(targetFreq) {
 
   canvas.height = document.body.clientHeight*/
 
+  canvas.width = canvas.offsetWidth
+  canvas.height = canvas.offsetHeight
+
   samples = 512
 
   pitchDisplay = document.querySelector('.pitch-note')
@@ -183,7 +186,7 @@ export default function pitchdetect(targetFreq) {
     analyser.getByteTimeDomainData(points)
     drawContext = canvas.getContext('2d')
     drawContext.clearRect(0, 0, w, h)
-    drawContext.strokeStyle = '#C2EDF2'
+    drawContext.strokeStyle = '#00103f'
     drawContext.lineWidth = 3
     drawContext.lineCap = 'butt'
     drawContext.lineJoin = 'miter'

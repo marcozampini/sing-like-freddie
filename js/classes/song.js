@@ -22,13 +22,6 @@ export default class Song {
     this.targetFrequency = targetFrequency
   }
 
-  /*loadSong() {
-    document.querySelector('#round h2').textContent = this.title
-    document.querySelector(
-      '#round h3'
-    ).textContent = `Taken from ${this.album}, ${this.year}`
-  }*/
-
   playSample() {
     this.songSample.currentTime = this.sampleStartsAt
     this.songSample.play()

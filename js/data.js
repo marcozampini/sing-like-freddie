@@ -14,6 +14,29 @@ const songs = [
     349.2
   ),
   new Song(
+    'A Kind Of Magic',
+    'Roger Taylor',
+    'A Kind Of Magic',
+    1986,
+    'a-kind-of-magic.mp3',
+    0,
+    17.7,
+    'D#4',
+    311.1
+  ),
+  new Song(
+    'Bohemian Rhapsody',
+    'Freddie Mercury',
+    'A Night At The Opera',
+    1975,
+    'bohemian-rhapsody.mp3',
+    42.1,
+    13.8,
+    'D4',
+    293.7
+  ),
+  /*
+  new Song(
     'Somebody to love',
     'Freddie Mercury',
     'A Day At The Races',
@@ -45,18 +68,7 @@ const songs = [
     7.66,
     'F',
     220
-  ),
-  new Song(
-    'Bohemian Rhapsody',
-    'Freddie Mercury',
-    'A Night At The Opera',
-    1975,
-    'bohemian-rhapsody.mp3',
-    42.1,
-    13.8,
-    'D',
-    220
-  ),
+  ),*/
 ]
 const styles = [
   new Style('a', 'Magic', 'freddie-1986.png'),

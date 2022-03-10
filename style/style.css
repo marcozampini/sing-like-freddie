@@ -40,21 +40,22 @@ h6 {
   text-align: center;
 }
 h1 {
-  /*font-size: 6rem;*/
   font-size: 2.8rem;
 }
 h2 {
-  /*font-size: 4.5rem;*/
   font-size: 2.3rem;
-  padding-bottom: 1rem;
+  padding-bottom: 2rem;
 }
 h3 {
-  /*font-size: 3rem;*/
-  font-size: 1.2rem;
-  padding-bottom: 1rem;
+  font-size: 1.8rem;
+  padding-bottom: 2rem;
 }
 h4 {
   padding-bottom: 1rem;
+}
+p {
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
 }
 a {
   text-decoration: none;
@@ -82,7 +83,9 @@ a {
 #landing,
 #your-name,
 #your-style,
-#round {
+#ready-to-play,
+#round,
+#scores {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -90,7 +93,8 @@ a {
 }
 
 #your-name,
-#your-style {
+#your-style,
+#ready-to-play {
   text-align: center;
 }
 #your-name input {
@@ -113,6 +117,7 @@ a {
 }
 #your-style .freddie-style picture img {
   height: 12rem;
+  margin-bottom: 1.5rem;
 }
 
 #round main {
@@ -137,26 +142,36 @@ a {
 }
 #round .queen-singing picture {
   display: block;
-  margin: 0 auto;
+  text-align: center;
 }
 #round .queen-singing img {
   width: 357px;
   height: 200px;
+  margin-bottom: 1rem;
 }
 #round .player-game {
   display: flex;
   flex-direction: row;
 }
-#round .player-game p {
-  margin-bottom: 1rem;
+#round .player-game picture {
+  margin-right: 2rem;
 }
+
 #round .player-game canvas {
-  width: 30rem;
-  height: 4rem;
+  width: 28rem;
+  height: 6rem;
   margin-bottom: 1rem;
   background-color: antiquewhite;
 }
 
-#scores {
-  text-align: center;
+#scores td {
+  font-size: 1.5rem;
+  padding: 1rem 3rem;
+}
+#scores td.round,
+#scores td.song {
+  text-align: left;
+}
+#scores td.score {
+  text-align: right;
 }

@@ -14,29 +14,40 @@
     <section id="landing" class="page">
       <h1>Sing like Freddie!</h1>
       <img src="style/images/freddies/freddie-1986.png" />
-      <a href="#your-name">Press ENTER to set up options and play!</a>
+      <p><a href="#your-name">Press ENTER to set up options and play!</a></p>
     </section>
 
     <section id="your-name" class="page">
       <h2>Type your name</h2>
       <input type="text" id="player-name" value="" />
-      <a href="#your-style">Press ENTER to submit</a>
+      <p>
+        <a href="#your-style">Press ENTER to submit</a>
+      </p>
     </section>
 
     <section id="your-style" class="page">
       <h2>Choose your style</h2>
       <div class="styles"></div>
       <footer>
-        <a href="#">Press ZERO to reset the game</a>
+        <a href="#">Press G to reset the game</a>
       </footer>
     </section>
 
     <section id="ready-to-play" class="page">
-      <h2>Ready to play the game?</h2>
-      <p>(of love)</p>
-      <a href="#round">Press ENTER to play the round</a>
+      <header>
+        <h2>Can you sing like Freddie?</h2>
+        <h3>Test your perfect pitch!</h3>
+      </header>
+      <main>
+        <p>When the music stops,</p>
+        <p>hold the note for 5 seconds.</p>
+        <p><em>Are you ready for this?</em></p>
+      </main>
+      <p>
+        <a href="#round">Press ENTER to play the round</a>
+      </p>
       <footer>
-        <a href="#">Press ZERO to reset the game</a>
+        <a href="#">Press G to reset the game</a>
       </footer>
     </section>
 
@@ -48,10 +59,6 @@
           >
           <span class="song-title">Song title is quite long</span>
         </h2>
-        <h3>
-          Taken from <span class="song-album">Album title long too</span>,
-          <span class="song-year">Year</span>
-        </h3>
       </header>
       <main>
         <div class="queen-singing playing">
@@ -59,7 +66,11 @@
           <picture>
             <img src="./style/images/queen-singing.gif" alt="Queen singing" />
           </picture>
-          <span class="comments-on-note">You're doing good!</span>
+          <p><span class="song-title">Song title is quite long</span></p>
+          <p>By <span class="song-author">Authors of the song</span></p>
+          <p>From <span class="song-album">Album title long too</span>,
+            <span class="song-year">Year</span>
+          </p>
         </div>
         <div class="player-singing">
           <h4>
@@ -75,13 +86,16 @@
             </picture>
             <div>
               <p>
-                Your note: <span class="pitch-note">F</span> ->
-                <span class="target-note">F</span>
+                Your note: <span class="pitch-note">...</span> ->
+                <span class="target-note">...</span>
               </p>
               <p>
                 Frequency:
-                <span class="pitch-frequency">000.00</span> ->
+                <span class="pitch-frequency">... </span> ->
                 <span class="target-frequency">200.00</span>
+              </p>
+              <p>
+                <span class="comments-on-note">You're doing good!</span>
               </p>
               <canvas></canvas>
               <p>SCORE: <span class="live-score">0</span></p>
@@ -96,12 +110,18 @@
     </section>
 
     <section id="scores" class="page">
-      <h2>Your score is <span class="game-score"></span></h2>
-      <table></table>
-      <a href="#">Play again!</a>
-      <footer>
-        <a href="#">Press ZERO to start a new game</a>
-      </footer>
+      <header>
+        <h2>Your score is <span class="game-score">XXX</span> points!</h2>
+        <p>You were great!</p>
+      </header>
+      <main>
+        <h3>Here the scores for every round</h3>
+        <table></table>
+      </main>
+      <div>
+        <p>Do you want to play again?</p>
+        <p><a href="#">Press G to start a new game</a></p>
+      </div>
     </section>
   </body>
   <template id="style-template">

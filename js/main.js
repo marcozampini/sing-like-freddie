@@ -62,7 +62,7 @@ document.addEventListener('keyup', (event) => {
       }
       break
     case '#your-style':
-      if (event.key === '0') {
+      if (event.key === 'g') {
         game = new Game(data.songs)
         songsIndexes = game.randomSongsOrder()
         window.location.hash = '#your-name'
@@ -78,7 +78,7 @@ document.addEventListener('keyup', (event) => {
 
       break
     case '#ready-to-play':
-      if (event.key === '0') {
+      if (event.key === 'g') {
         game = new Game(data.songs)
         songsIndexes = game.randomSongsOrder()
         window.location.hash = '#your-name'
@@ -97,14 +97,14 @@ document.addEventListener('keyup', (event) => {
       }
       break
     case '#round':
-      if (event.key === '0') {
+      if (event.key === 'g') {
         game = new Game(data.songs)
         songsIndexes = game.randomSongsOrder()
         window.location.hash = '#your-name'
         playerNameElement.focus()
       }
       if (event.key === 'n') {
-        round.score = liveScoreElement.textContent
+        round.score = parseInt(liveScoreElement.textContent)
         if (game.currentRound + 1 < data.songs.length) {
           game.currentRound++
           window.location.hash = '#ready-to-play'
@@ -114,13 +114,13 @@ document.addEventListener('keyup', (event) => {
         }
       }
       if (event.key === 's') {
-        round.score = liveScoreElement.textContent
+        round.score = parseInt(liveScoreElement.textContent)
         game.calculateAndLoadScores(scoresTable, gameScoreElement)
         window.location.hash = '#scores'
       }
       break
     case '#scores':
-      if (event.key === '0') {
+      if (event.key === 'g') {
         game = new Game(data.songs)
         songsIndexes = game.randomSongsOrder()
         window.location.hash = '#your-name'

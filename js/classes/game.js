@@ -19,8 +19,9 @@ export default class Game {
     return songsIndexes
   }
   calculateAndLoadScores(scoresTable, gameScoreElement) {
+    let partialScore = 0
     for (let i = 0; i < this.rounds.length; i++) {
-      this.score += this.rounds[i].score
+      partialScore += this.rounds[i].score
       let tr = document.createElement('tr')
       let tdRound = document.createElement('td')
       tdRound.classList.add('round')
@@ -36,7 +37,12 @@ export default class Game {
       tr.appendChild(tdScore)
       scoresTable.appendChild(tr)
     }
-    this.score = this.score / this.rounds.length
+    console.log('sum of the rounds', partialScore)
+    console.log('number of rounds', this.rounds.length)
+    partialScore = partialScore / this.rounds.length
+    this.score = partialScore
+    console.log('average of the rounds', partialScore)
     gameScoreElement.textContent = Math.round(this.score)
+    console.log('rounded average of the rounds', partialScore)
   }
 }
