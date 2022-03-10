@@ -13,7 +13,7 @@ export default class Round {
     this.song.playSample()
 
     setTimeout(() => {
-      this.score = pitchdetect(this.song.targetFrequency)
+      pitchdetect(this.song.targetFrequency)
     }, this.song.sampleDuration * 1000)
   }
 }

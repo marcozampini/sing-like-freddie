@@ -1,4 +1,3 @@
-import SongsSelection from './classes/songs-selection.js'
 import StyleSelection from './classes/style-selection.js'
 import Game from './classes/game.js'
 import Round from './classes/round.js'
@@ -17,12 +16,14 @@ import data from './data.js'
   },
 })*/
 
-// Sections, elements and templates
-const songsSelection = new SongsSelection(data.songs)
-const songsIndexes = songsSelection.songsOrder(data.songs)
+// Variable creation
+let game
+let songsIndexes
+let round
 
+// Sections, elements and templates
 const playerNameElement = document.querySelector('#your-name #player-name')
-let playerName = ''
+let playerName
 
 let styleTemplate = document.querySelector('#style-template')
 let stylesSection = document.querySelector('#your-style .styles')
@@ -32,18 +33,17 @@ const freddieStyles = new StyleSelection(
   stylesSection
 )
 freddieStyles.loadStyles()
-let freddieStyle = null
-
-let game = new Game()
-let round
+let freddieStyle
 
 // Keys
-document.addEventListener('keydown', (event) => {
+document.addEventListener('keyup', (event) => {
   switch (window.location.hash) {
     case '':
     case '#':
     case '#landing':
       if (event.key === 'Enter') {
+        game = new Game(data.songs)
+        songsIndexes = game.randomSongsOrder()
         window.location.hash = '#your-name'
         playerNameElement.focus()
       }
@@ -57,7 +57,10 @@ document.addEventListener('keydown', (event) => {
       break
     case '#your-style':
       if (event.key === '0') {
-        window.location.hash = ''
+        game = new Game(data.songs)
+        songsIndexes = game.randomSongsOrder()
+        window.location.hash = '#your-name'
+        playerNameElement.focus()
       }
       for (let i = 0; i < data.styles.length; i++) {
         if (event.key === data.styles[i].activationKey) {
@@ -70,14 +73,16 @@ document.addEventListener('keydown', (event) => {
       break
     case '#ready-to-play':
       if (event.key === '0') {
-        window.location.hash = ''
+        game = new Game(data.songs)
+        songsIndexes = game.randomSongsOrder()
+        window.location.hash = '#your-name'
+        playerNameElement.focus()
       }
       if (event.key === 'Enter') {
         round = new Round(
           game.currentRound,
           data.songs[songsIndexes[game.currentRound]]
         )
-        console.log(round)
         round.loadRound()
         window.location.hash = '#round'
 
@@ -87,7 +92,10 @@ document.addEventListener('keydown', (event) => {
       break
     case '#round':
       if (event.key === '0') {
-        window.location.hash = ''
+        game = new Game(data.songs)
+        songsIndexes = game.randomSongsOrder()
+        window.location.hash = '#your-name'
+        playerNameElement.focus()
       }
       if (event.key === 'n') {
         game.currentRound++
@@ -96,13 +104,13 @@ document.addEventListener('keydown', (event) => {
       if (event.key === 's') {
         window.location.hash = '#scores'
       }
-      if (event.key === 'Enter') {
-      }
       break
     case '#scores':
       if (event.key === '0') {
-        game = new Game()
+        game = new Game(data.songs)
+        songsIndexes = game.randomSongsOrder()
         window.location.hash = '#your-name'
+        playerNameElement.focus()
       }
       break
   }

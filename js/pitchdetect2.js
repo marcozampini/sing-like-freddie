@@ -207,6 +207,5 @@ export default function pitchdetect(targetFreq) {
   )
   setTimeout(() => {
     audioContext.close()
-    return score
   }, 5000)
 }
