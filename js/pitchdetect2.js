@@ -1,5 +1,6 @@
 export default function pitchdetect(targetFreq) {
   let score = 0
+  let isCapturing = false
   var analyser,
     animationLoop,
     audioContext,
@@ -139,10 +140,10 @@ export default function pitchdetect(targetFreq) {
     if (pitch > 0) {
       pitchDisplay.innerHTML = noteFromPitch(pitch)
     }
-    if (targetFreq - pitch > 0) {
+    if (targetFreq - pitch >= 0) {
       if (pitch / targetFreq > 0.97) {
         document.querySelector('.target-freq').textContent = 'Good (low)'
-        score++
+        score = score + 100
         document.querySelector('.live-score').textContent = score
       } else {
         document.querySelector('.target-freq').textContent = 'Too low'
@@ -150,7 +151,7 @@ export default function pitchdetect(targetFreq) {
     } else {
       if (targetFreq / pitch > 0.97) {
         document.querySelector('.target-freq').textContent = 'Good (high)'
-        score++
+        score = score + 100
         document.querySelector('.live-score').textContent = score
       } else {
         document.querySelector('.target-freq').textContent = 'Too high'
@@ -187,7 +188,9 @@ export default function pitchdetect(targetFreq) {
   animationLoop = function () {
     visualize()
     updatePitch()
-    return window.requestAnimationFrame(animationLoop)
+    if (isCapturing) {
+      window.requestAnimationFrame(animationLoop)
+    }
   }
 
   navigator.getUserMedia(
@@ -195,10 +198,10 @@ export default function pitchdetect(targetFreq) {
       audio: true,
     },
     function (stream) {
-      var microphone
-      microphone = audioContext.createMediaStreamSource(stream)
+      const microphone = audioContext.createMediaStreamSource(stream)
       microphone.connect(compressor)
       compressor.connect(analyser)
+      isCapturing = true
       return window.requestAnimationFrame(animationLoop)
     },
     function (e) {
@@ -206,6 +209,7 @@ export default function pitchdetect(targetFreq) {
     }
   )
   setTimeout(() => {
+    isCapturing = false
     audioContext.close()
   }, 5000)
 }

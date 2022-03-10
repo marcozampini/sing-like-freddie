@@ -35,6 +35,11 @@ const freddieStyles = new StyleSelection(
 freddieStyles.loadStyles()
 let freddieStyle
 
+const liveScoreElement = document.querySelector('#round .live-score')
+
+const scoresTable = document.querySelector('#scores table')
+const gameScoreElement = document.querySelector('#scores .game-score')
+
 // Keys
 document.addEventListener('keyup', (event) => {
   switch (window.location.hash) {
@@ -98,10 +103,13 @@ document.addEventListener('keyup', (event) => {
         playerNameElement.focus()
       }
       if (event.key === 'n') {
+        round.score = liveScoreElement.textContent
         game.currentRound++
         window.location.hash = '#ready-to-play'
       }
       if (event.key === 's') {
+        round.score = liveScoreElement.textContent
+        game.calculateAndLoadScores(scoresTable, gameScoreElement)
         window.location.hash = '#scores'
       }
       break

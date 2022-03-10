@@ -87,6 +87,9 @@ a {
 #your-style .styles {
   display: flex;
   flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 100%;
 }
 #your-style .freddie-style picture img {
   max-height: 20vh;
