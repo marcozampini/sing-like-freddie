@@ -37,18 +37,22 @@ let freddieStyle = ''
 const roundTemplate = document.querySelector('#round-template')
 const scoresSection = document.querySelector('#scores')
 
+let game
+let round
+let currentRound = 0
+
 // Keys
 document.addEventListener('keydown', (event) => {
   switch (window.location.hash) {
     case '':
     case '#':
-    case 'landing':
+    case '#landing':
       if (event.key === 'Enter') {
         window.location.hash = '#your-name'
+        playerNameElement.focus()
       }
       break
     case '#your-name':
-      playerNameElement.focus()
       if (event.key === 'Enter' && playerNameElement.value != '') {
         playerName = playerNameElement.value
         window.location.hash = '#your-style'
@@ -61,13 +65,7 @@ document.addEventListener('keydown', (event) => {
       for (let i = 0; i < config.styles.length; i++) {
         if (event.key === config.styles[i].activationKey) {
           freddieStyle = config.styles[i]
-          const game = new Game(playerName, freddieStyle)
-          const round = new Round(
-            0,
-            config.songs[songsIndexes[0]],
-            roundTemplate,
-            scoresSection
-          )
+          game = new Game(playerName, freddieStyle)
           window.location.hash = '#ready-to-play'
         }
       }
@@ -77,14 +75,38 @@ document.addEventListener('keydown', (event) => {
       if (event.key === '0') {
         window.location.hash = ''
       }
+      if (event.key === 'Enter') {
+        round = new Round(
+          currentRound,
+          config.songs[songsIndexes[currentRound]],
+          roundTemplate,
+          scoresSection
+        )
+        console.log(round)
+        round.loadRound()
+        window.location.hash = '#round'
 
-      round.loadRound()
-      setTimeout(() => {
-        window.location.hash = '#round-0'
         round.playRound()
-        game.rounds.push()
-      }, 5000)
-    case '#round-0':
+        game.rounds.push(round)
+        console.log('game', game)
+      }
+      break
+    case '#round':
+      if (event.key === '0') {
+        window.location.hash = ''
+      }
+      if (event.key === 'n') {
+        currentRound++
+        window.location.hash = '#ready-to-play'
+      }
+      if (event.key === 's') {
+        window.location.hash = '#scores'
+      }
+      if (event.key === 'Enter') {
+        console.log('enter in round')
+      }
+      break
+    case '#scores':
       if (event.key === '0') {
         window.location.hash = ''
       }

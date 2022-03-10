@@ -1,4 +1,4 @@
-function pitchdetect(targetFreq, duration) {
+export default function pitchdetect(targetFreq) {
   let score = 0
   var analyser,
     animationLoop,

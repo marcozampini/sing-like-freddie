@@ -1,3 +1,5 @@
+import pitchdetect from '../pitchdetect2.js'
+
 export default class Round {
   constructor(id, song, roundTemplate, scoresSection) {
     this.id = id
@@ -8,11 +10,12 @@ export default class Round {
   }
   loadRound() {
     const clone = this.roundTemplate.content.cloneNode(true)
-    clone.querySelector('section').setAttribute('id', `round-${this.id}`)
+    //clone.querySelector('section').setAttribute('id', `round-${this.id}`)
+    clone.querySelector('section').setAttribute('id', `round`)
     document.body.insertBefore(clone, this.scoresSection)
+    this.song.loadSong()
   }
   playRound() {
-    this.song.loadSong()
     this.song.playSample()
 
     setTimeout(() => {

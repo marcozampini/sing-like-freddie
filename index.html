@@ -13,14 +13,13 @@
     href="./style/images/favicon.ico"
     type="image/x-icon"
     />
-    <script src="js/pitchdetect2.js" type="module"></script>
     <script src="js/main.js" type="module"></script>
   </head>
   <body>
     <section id="landing" class="page">
       <h1>Sing like Freddie !</h1>
       <img src="style/images/freddies/freddie-1986.png" />
-      <a href="#options">Press ENTER to set up options and play!</a>
+      <a href="#your-name">Press ENTER to set up options and play!</a>
     </section>
 
     <section id="your-name" class="page">
@@ -40,7 +39,7 @@
     <section id="ready-to-play" class="page">
       <h2>Ready to play the game?</h2>
       <p>(of love)</p>
-      <a href="#round-0">Press ENTER to play the game</a>
+      <a href="#round">Press ENTER to play the round</a>
       <footer>
         <a href="#">Press ZERO to go back to the landing page</a>
       </footer>
@@ -68,15 +67,15 @@
           <p class="countdown">Get ready while Queen are singing...</p>
         </div>
         <div class="player-singing">
-          <p>Note: <span class="pitch"></span></p>
-          <p>Frequency: <span class="freq"></span></p>
-          <p>Good or bad? <span class="target-freq"></span></p>
+          <p>Your note: <span class="pitch"></span>Frequency: <span class="freq"></span></p>
+          <p><span class="target-freq"></span></p>
           <p>Score: <span class="live-score">0</span></p>
           <canvas width="640" height="120"></canvas>
         </div>
       </main>
       <footer>
-        <a href="#">Press ZERO to go back to the landing page</a>
+        <a href="#ready-to-play">Press N to play another round</a> |
+        <a href="#scores">Press S to stop and see your score</a>
       </footer>
     </section>
   </template>
