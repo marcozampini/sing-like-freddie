@@ -2,16 +2,11 @@
 <html>
   <head>
     <title>Sing like Freddie !</title>
-    <link
-    href="http://fonts.googleapis.com/css?family=Alike"
-    rel="stylesheet"
-    type="text/css"
-    />
     <link rel="stylesheet" href="./style/style.css" />
     <link
-    rel="shortcut icon"
-    href="./style/images/favicon.ico"
-    type="image/x-icon"
+      rel="shortcut icon"
+      href="./style/images/favicon.ico"
+      type="image/x-icon"
     />
     <script src="js/main.js" type="module"></script>
   </head>
@@ -30,9 +25,7 @@
 
     <section id="your-style" class="page">
       <h2>Choose your style</h2>
-      <div class="styles">
-        <!-- Style template(s) here -->
-      </div>
+      <div class="styles"></div>
       <footer>
         <a href="#">Press ZERO to reset the game</a>
       </footer>
@@ -49,21 +42,51 @@
 
     <section id="round" class="page">
       <header>
-        <h2>Song title</h2>
-        <h3>Taken from Album title, Year</h3>
+        <h2>
+          <span class="round-title"
+            >ROUND <span class="round-counter">1</span>!</span
+          >
+          <span class="song-title">Song title is quite long</span>
+        </h2>
+        <h3>
+          Taken from <span class="song-album">Album title long too</span>,
+          <span class="song-year">Year</span>
+        </h3>
       </header>
       <main>
         <div class="queen-singing playing">
+          <h4>QUEEN <span class="on-air">ON AIR</span></h4>
           <picture>
             <img src="./style/images/queen-singing.gif" alt="Queen singing" />
           </picture>
-          <p class="countdown">Get ready while Queen are singing...</p>
+          <span class="comments-on-note">You're doing good!</span>
         </div>
         <div class="player-singing">
-          <p>Your note: <span class="pitch"></span> Frequency: <span class="freq">000.00</span></p>
-          <p>Target note: <span class="pitch"></span> Target frequency: <span class="target-freq">000.00</span></p>
-          <p>Score: <span class="live-score">0</span></p>
-          <canvas width="640" height="120"></canvas>
+          <h4>
+            <span class="player-name">PLAYER NAME</span>
+            <span class="warm-up">WARM UP</span>
+          </h4>
+          <div class="player-game">
+            <picture>
+              <img
+                src="./style/images/freddies/freddie-king.png"
+                alt="Freddie style"
+              />
+            </picture>
+            <div>
+              <p>
+                Your note: <span class="pitch-note">F</span> ->
+                <span class="target-note">F</span>
+              </p>
+              <p>
+                Frequency:
+                <span class="pitch-frequency">000.00</span> ->
+                <span class="target-frequency">200.00</span>
+              </p>
+              <canvas></canvas>
+              <p>SCORE: <span class="live-score">0</span></p>
+            </div>
+          </div>
         </div>
       </main>
       <footer>
@@ -71,11 +94,10 @@
         <a href="#scores">Press S to stop and see your score</a>
       </footer>
     </section>
-    
+
     <section id="scores" class="page">
       <h2>Your score is <span class="game-score"></span></h2>
-      <table>
-      </table>
+      <table></table>
       <a href="#">Play again!</a>
       <footer>
         <a href="#">Press ZERO to start a new game</a>
@@ -86,9 +108,9 @@
     <div class="freddie-style">
       <h3>Style name</h3>
       <picture>
-        <img src="./style/images/freddies/freddie-1986.png" alt="Style name">
+        <img src="./style/images/freddies/freddie-1986.png" alt="Style name" />
       </picture>
-      <p>Type Key</p>
+      <p>Type <span class="activation-key">A</span></p>
       <p>to select</p>
     </div>
   </template>

@@ -13,9 +13,8 @@ export default class StyleSelection {
       clone.querySelector(
         'img'
       ).src = `./style/images/freddies/${this.styles[i].avatarUrl}`
-      clone.querySelector(
-        'p'
-      ).textContent = `Type ${this.styles[i].activationKey}`
+      clone.querySelector('.activation-key').textContent =
+        this.styles[i].activationKey.toUpperCase()
       this.stylesSection.appendChild(clone)
     }
   }

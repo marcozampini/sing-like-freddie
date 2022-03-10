@@ -1,6 +1,10 @@
 export default function pitchdetect(targetFreq) {
   let score = 0
   let isCapturing = false
+
+  let commentsOnPitchElement = document.querySelector('.comments-on-note')
+  let liveScoreElement = document.querySelector('.live-score')
+
   var analyser,
     animationLoop,
     audioContext,
@@ -36,9 +40,9 @@ export default function pitchdetect(targetFreq) {
 
   samples = 512
 
-  pitchDisplay = document.querySelector('.pitch')
+  pitchDisplay = document.querySelector('.pitch-note')
 
-  freq = document.querySelector('.freq')
+  freq = document.querySelector('.pitch-frequency')
 
   minSamples = 0
 
@@ -141,23 +145,31 @@ export default function pitchdetect(targetFreq) {
       pitchDisplay.innerHTML = noteFromPitch(pitch)
     }
     if (targetFreq - pitch >= 0) {
-      if (pitch / targetFreq > 0.97) {
-        document.querySelector('.target-freq').textContent = 'Good (low)'
+      if (pitch / targetFreq > 0.98) {
+        commentsOnPitchElement.textContent = `You're doing great!`
+        score = score + 500
+        liveScoreElement.textContent = score
+      } else if (pitch / targetFreq > 0.97) {
+        commentsOnPitchElement.textContent = `You're doing good!`
         score = score + 100
-        document.querySelector('.live-score').textContent = score
+        liveScoreElement.textContent = score
       } else {
-        document.querySelector('.target-freq').textContent = 'Too low'
+        commentsOnPitchElement.textContent = `Too low!`
       }
     } else {
-      if (targetFreq / pitch > 0.97) {
-        document.querySelector('.target-freq').textContent = 'Good (high)'
+      if (targetFreq / pitch > 0.98) {
+        commentsOnPitchElement.textContent = `You're doing great!`
+        score = score + 500
+        liveScoreElement.textContent = score
+      } else if (targetFreq / pitch > 0.97) {
+        commentsOnPitchElement.textContent = `You're doing good!`
         score = score + 100
-        document.querySelector('.live-score').textContent = score
+        liveScoreElement.textContent = score
       } else {
-        document.querySelector('.target-freq').textContent = 'Too high'
+        commentsOnPitchElement.textContent = 'Too high!'
       }
     }
-    return (freq.innerHTML = pitch)
+    return (freq.innerHTML = Math.round(pitch * 100) / 100)
   }
 
   visualize = function () {

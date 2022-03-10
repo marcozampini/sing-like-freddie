@@ -25,8 +25,8 @@ let round
 const playerNameElement = document.querySelector('#your-name #player-name')
 let playerName
 
-let styleTemplate = document.querySelector('#style-template')
-let stylesSection = document.querySelector('#your-style .styles')
+const styleTemplate = document.querySelector('#style-template')
+const stylesSection = document.querySelector('#your-style .styles')
 const freddieStyles = new StyleSelection(
   data.styles,
   styleTemplate,
@@ -35,6 +35,7 @@ const freddieStyles = new StyleSelection(
 freddieStyles.loadStyles()
 let freddieStyle
 
+const roundSection = document.querySelector('#round')
 const liveScoreElement = document.querySelector('#round .live-score')
 
 const scoresTable = document.querySelector('#scores table')
@@ -55,7 +56,7 @@ document.addEventListener('keyup', (event) => {
       break
     case '#your-name':
       if (event.key === 'Enter' && playerNameElement.value != '') {
-        playerName = playerNameElement.value
+        playerName = playerNameElement.value.toUpperCase()
         game.playerName = playerName
         window.location.hash = '#your-style'
       }
@@ -88,7 +89,7 @@ document.addEventListener('keyup', (event) => {
           game.currentRound,
           data.songs[songsIndexes[game.currentRound]]
         )
-        round.loadRound()
+        round.loadRound(roundSection, playerName, freddieStyle)
         window.location.hash = '#round'
 
         round.playRound()
@@ -104,8 +105,13 @@ document.addEventListener('keyup', (event) => {
       }
       if (event.key === 'n') {
         round.score = liveScoreElement.textContent
-        game.currentRound++
-        window.location.hash = '#ready-to-play'
+        if (game.currentRound + 1 < data.songs.length) {
+          game.currentRound++
+          window.location.hash = '#ready-to-play'
+        } else {
+          game.calculateAndLoadScores(scoresTable, gameScoreElement)
+          window.location.hash = '#scores'
+        }
       }
       if (event.key === 's') {
         round.score = liveScoreElement.textContent

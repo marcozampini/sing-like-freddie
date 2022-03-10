@@ -13,7 +13,7 @@ const songs = [
     'F4',
     349.2
   ),
-  /*new Song(
+  new Song(
     'Somebody to love',
     'Freddie Mercury',
     'A Day At The Races',
@@ -56,7 +56,7 @@ const songs = [
     13.8,
     'D',
     220
-  ),*/
+  ),
 ]
 const styles = [
   new Style('a', 'Magic', 'freddie-1986.png'),
