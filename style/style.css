@@ -12,7 +12,7 @@
   scroll-behavior: smooth;
 }
 body {
-  overflow: hidden;
+  /*overflow: hidden;*/
 }
 body,
 input,

@@ -32,14 +32,13 @@ const freddieStyles = new StyleSelection(
   stylesSection
 )
 freddieStyles.loadStyles()
-let freddieStyle = ''
+let freddieStyle = null
 
 const roundTemplate = document.querySelector('#round-template')
 const scoresSection = document.querySelector('#scores')
 
-let game
+let game = new Game()
 let round
-let currentRound = 0
 
 // Keys
 document.addEventListener('keydown', (event) => {
@@ -55,6 +54,7 @@ document.addEventListener('keydown', (event) => {
     case '#your-name':
       if (event.key === 'Enter' && playerNameElement.value != '') {
         playerName = playerNameElement.value
+        game.playerName = playerName
         window.location.hash = '#your-style'
       }
       break
@@ -65,7 +65,7 @@ document.addEventListener('keydown', (event) => {
       for (let i = 0; i < data.styles.length; i++) {
         if (event.key === data.styles[i].activationKey) {
           freddieStyle = data.styles[i]
-          game = new Game(playerName, freddieStyle)
+          game.freddieStyle = freddieStyle
           window.location.hash = '#ready-to-play'
         }
       }
@@ -77,8 +77,8 @@ document.addEventListener('keydown', (event) => {
       }
       if (event.key === 'Enter') {
         round = new Round(
-          currentRound,
-          data.songs[songsIndexes[currentRound]],
+          game.currentRound,
+          data.songs[songsIndexes[game.currentRound]],
           roundTemplate,
           scoresSection
         )
@@ -96,19 +96,19 @@ document.addEventListener('keydown', (event) => {
         window.location.hash = ''
       }
       if (event.key === 'n') {
-        currentRound++
+        game.currentRound++
         window.location.hash = '#ready-to-play'
       }
       if (event.key === 's') {
         window.location.hash = '#scores'
       }
       if (event.key === 'Enter') {
-        console.log('enter in round')
       }
       break
     case '#scores':
       if (event.key === '0') {
-        window.location.hash = ''
+        game = new Game()
+        window.location.hash = '#your-name'
       }
       break
   }

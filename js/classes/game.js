@@ -1,7 +1,8 @@
 export default class Game {
-  constructor(playerName, freddieStyle) {
-    this.playerName = playerName
-    this.freddieStyle = freddieStyle
+  constructor() {
+    this.playerName = ''
+    this.freddieStyle = null
+    this.currentRound = 0
     this.rounds = []
     this.score = 0
   }
