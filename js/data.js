@@ -64,5 +64,5 @@ const styles = [
   new Style('c', 'King style', 'freddie-king.png'),
 ]
 
-const config = { songs, styles }
-export default config
+const data = { songs, styles }
+export default data

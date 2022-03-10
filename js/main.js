@@ -2,7 +2,7 @@ import SongsSelection from './classes/songs-selection.js'
 import StyleSelection from './classes/style-selection.js'
 import Game from './classes/game.js'
 import Round from './classes/round.js'
-import config from './config.js'
+import data from './data.js'
 
 // Ask the permission to use the mic to the browser
 /*navigator.mediaDevices.getUserMedia({
@@ -18,8 +18,8 @@ import config from './config.js'
 })*/
 
 // Sections, elements and templates
-const songsSelection = new SongsSelection(config.songs)
-const songsIndexes = songsSelection.songsOrder(config.songs)
+const songsSelection = new SongsSelection(data.songs)
+const songsIndexes = songsSelection.songsOrder(data.songs)
 
 const playerNameElement = document.querySelector('#your-name #player-name')
 let playerName = ''
@@ -27,7 +27,7 @@ let playerName = ''
 let styleTemplate = document.querySelector('#style-template')
 let stylesSection = document.querySelector('#your-style .styles')
 const freddieStyles = new StyleSelection(
-  config.styles,
+  data.styles,
   styleTemplate,
   stylesSection
 )
@@ -62,9 +62,9 @@ document.addEventListener('keydown', (event) => {
       if (event.key === '0') {
         window.location.hash = ''
       }
-      for (let i = 0; i < config.styles.length; i++) {
-        if (event.key === config.styles[i].activationKey) {
-          freddieStyle = config.styles[i]
+      for (let i = 0; i < data.styles.length; i++) {
+        if (event.key === data.styles[i].activationKey) {
+          freddieStyle = data.styles[i]
           game = new Game(playerName, freddieStyle)
           window.location.hash = '#ready-to-play'
         }
@@ -78,7 +78,7 @@ document.addEventListener('keydown', (event) => {
       if (event.key === 'Enter') {
         round = new Round(
           currentRound,
-          config.songs[songsIndexes[currentRound]],
+          data.songs[songsIndexes[currentRound]],
           roundTemplate,
           scoresSection
         )
