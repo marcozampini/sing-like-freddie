@@ -4,6 +4,10 @@
   src: url('fonts/QueenInlineGrunge.otf') format('opentype');
   src: url('fonts/QueenInlineGrunge.ttf') format('truetype');
 }
+@font-face {
+  font-family: PublicPixel;
+  src: url('fonts/PublicPixel.ttf') format('truetype');
+}
 
 * {
   margin: 0;
@@ -17,8 +21,10 @@ body {
 body,
 input,
 button {
-  font-family: Queen, Georgia, 'Times New Roman', Times, serif;
-  font-size: 2rem;
+  /*font-family: Queen, Georgia, 'Times New Roman', Times, serif;
+  font-size: 2rem;*/
+  font-family: PublicPixel, 'Courier New', Courier, monospace;
+  font-size: 1rem;
 }
 h1,
 h2,
@@ -26,17 +32,21 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: Queen, Georgia, 'Times New Roman', Times, serif;
+  /*font-family: Queen, Georgia, 'Times New Roman', Times, serif;*/
+  font-family: PublicPixel, 'Courier New', Courier, monospace;
   text-align: center;
 }
 h1 {
-  font-size: 6rem;
+  /*font-size: 6rem;*/
+  font-size: 2.8rem;
 }
 h2 {
-  font-size: 4.5rem;
+  /*font-size: 4.5rem;*/
+  font-size: 2.3rem;
 }
 h3 {
-  font-size: 3rem;
+  /*font-size: 3rem;*/
+  font-size: 1.2rem;
 }
 a {
   text-decoration: none;
