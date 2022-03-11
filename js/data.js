@@ -3,6 +3,17 @@ import Style from './classes/style.js'
 
 const songs = [
   new Song(
+    'Somebody to love',
+    'Freddie Mercury',
+    'A Day At The Races',
+    1976,
+    'somebody-to-love.mp3',
+    0,
+    16.2,
+    'G#2',
+    103.8
+  ),
+  new Song(
     'Radio Ga Ga',
     'Roger Taylor',
     'The Works',
@@ -12,7 +23,7 @@ const songs = [
     9.1,
     'F4',
     349.2
-  ) 
+  ),
   new Song(
     'We Are The Champions',
     'Freddie Mercury / Brian May',
@@ -46,18 +57,8 @@ const songs = [
     'D4',
     293.7
   ),
+
   /*
-  new Song(
-    'Somebody to love',
-    'Freddie Mercury',
-    'A Day At The Races',
-    1976,
-    'somebody-to-love.mp3',
-    42.1,
-    13.8,
-    'D',
-    220
-  ),
   new Song(
     'Don’t Stop Me Now',
     'Freddie Mercury',
@@ -79,7 +80,7 @@ const songs = [
     7.66,
     'F',
     220
-  ),*/,
+  ),*/
 ]
 const styles = [
   new Style('a', 'Magic', 'freddie-1986.png'),
