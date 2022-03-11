@@ -1,6 +1,5 @@
 @font-face {
   font-family: Queen;
-
   src: url('fonts/QueenInlineGrunge.otf') format('opentype');
   src: url('fonts/QueenInlineGrunge.ttf') format('truetype');
 }
@@ -8,7 +7,6 @@
   font-family: PublicPixel;
   src: url('fonts/PublicPixel.ttf') format('truetype');
 }
-
 * {
   margin: 0;
   padding: 0;
@@ -59,7 +57,9 @@ p {
 }
 a {
   text-decoration: none;
+  color: blue;
 }
+
 .page {
   position: relative;
   width: 100%;
@@ -80,6 +80,7 @@ a {
   text-align: center;
   font-size: 1rem;
 }
+
 #landing,
 #your-name,
 #your-style,
@@ -97,6 +98,7 @@ a {
 #ready-to-play {
   text-align: center;
 }
+
 #your-name input {
   display: block;
   width: 30rem;
@@ -106,8 +108,9 @@ a {
   text-transform: uppercase;
   letter-spacing: 0.1rem;
   border: none;
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid 00103f;
 }
+
 #your-style .styles {
   display: flex;
   flex-direction: row;
@@ -128,42 +131,66 @@ a {
 }
 #round main > div {
   padding: 1rem;
-  background-color: darkblue;
+  border-bottom: 0.5rem solid #00103f;
 }
-#round .on-air {
+
+#round .queen .on-air {
+  display: none;
+}
+#round .queen picture {
+  display: block;
+  text-align: center;
+}
+#round .queen img {
+  margin-bottom: 1rem;
+}
+#round .queen.playing {
+  background-color: darkblue;
+  border-color: crimson;
+}
+#round .queen.playing .on-air {
+  display: inline;
   padding: 0.5rem;
-  background-color: red;
+  background-color: crimson;
   color: antiquewhite;
 }
-#round .warm-up {
+#round .player .on-air {
   padding: 0.5rem;
   background-color: yellow;
   color: black;
 }
-#round .queen-singing picture {
-  display: block;
-  text-align: center;
-}
-#round .queen-singing img {
-  width: 357px;
-  height: 200px;
-  margin-bottom: 1rem;
-}
 #round .player-game {
   display: flex;
   flex-direction: row;
+  min-width: 45rem;
+}
+
+#round .player .live-data {
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s, opacity 0.5s linear;
 }
 #round .player-game picture {
   margin-right: 2rem;
 }
-
 #round .player-game canvas {
   width: 28rem;
   height: 6rem;
   margin-bottom: 1rem;
   background-color: antiquewhite;
 }
-
+#round .player.playing {
+  background-color: darkblue;
+  border-color: green;
+}
+#round .player.playing .on-air {
+  background-color: green;
+  color: antiquewhite;
+}
+#round .player.playing .live-data {
+  visibility: visible;
+  opacity: 1;
+}
 #scores td {
   font-size: 1.5rem;
   padding: 1rem 3rem;
@@ -174,4 +201,7 @@ a {
 }
 #scores td.score {
   text-align: right;
+}
+#scores tr:nth-of-type(odd) td {
+  color: cadetblue;
 }

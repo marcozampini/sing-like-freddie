@@ -7,6 +7,12 @@ export default class Round {
     this.score = 0
   }
   loadRound(roundSection, playerName, freddieStyle) {
+    roundSection.querySelector('.queen').classList.add('playing')
+    roundSection.querySelector('.queen picture img').src =
+      './style/images/queen-singing.gif'
+    roundSection.querySelector('.player').classList.remove('playing')
+    roundSection.querySelector('.player .on-air').textContent = 'WARM UP'
+
     roundSection.querySelector('.round-counter').textContent = this.id + 1
     roundSection.querySelector('.song-title').textContent = this.song.title
     roundSection.querySelector('p .song-title').textContent = this.song.title
@@ -18,20 +24,26 @@ export default class Round {
     roundSection.querySelector('.player-game picture img').src =
       './style/images/freddies/' + freddieStyle.avatarUrl
 
-    roundSection.querySelector('.pitch-note').textContent = '...'
-    roundSection.querySelector('.pitch-frequency').textContent = '...'
+    roundSection.querySelector('.pitch-note').textContent = ''
+    roundSection.querySelector('.pitch-frequency').textContent = ''
     roundSection.querySelector('.target-note').textContent =
       this.song.targetNote
     roundSection.querySelector('.target-frequency').textContent =
       this.song.targetFrequency.toFixed(2)
     roundSection.querySelector('.live-score').textContent = 0
-    roundSection.querySelector('.comments-on-note').textContent = '...'
+    roundSection.querySelector('.comments-on-note').textContent =
+      'Are you ready?'
   }
-  playRound() {
+  playRound(roundSection) {
     this.song.playSample()
 
     setTimeout(() => {
       pitchdetect(this.song.targetFrequency)
+      roundSection.querySelector('.queen').classList.remove('playing')
+      roundSection.querySelector('.player').classList.add('playing')
+      roundSection.querySelector('.queen picture img').src =
+        './style/images/queen-listening.gif'
+      roundSection.querySelector('.player .on-air').textContent = 'GO!!!'
     }, this.song.sampleDuration * 1000)
   }
 }

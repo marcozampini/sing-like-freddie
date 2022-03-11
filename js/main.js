@@ -92,7 +92,7 @@ document.addEventListener('keyup', (event) => {
         round.loadRound(roundSection, playerName, freddieStyle)
         window.location.hash = '#round'
 
-        round.playRound()
+        round.playRound(roundSection)
         game.rounds.push(round)
       }
       break
