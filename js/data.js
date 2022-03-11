@@ -3,6 +3,17 @@ import Style from './classes/style.js'
 
 const songs = [
   new Song(
+    'Radio Ga Ga',
+    'Roger Taylor',
+    'The Works',
+    1984,
+    'radio-ga-ga.mp3',
+    211.4,
+    9.1,
+    'F4',
+    349.2
+  ) 
+  new Song(
     'We Are The Champions',
     'Freddie Mercury / Brian May',
     'News Of The World',
@@ -68,7 +79,7 @@ const songs = [
     7.66,
     'F',
     220
-  ),*/
+  ),*/,
 ]
 const styles = [
   new Style('a', 'Magic', 'freddie-1986.png'),
