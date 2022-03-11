@@ -2,6 +2,18 @@ import Song from './classes/song.js'
 import Style from './classes/style.js'
 
 const songs = [
+  /*
+  new Song(
+    'Song to test Round Page',
+    'Freddie Mercury',
+    'A Day At The Races',
+    1976,
+    'somebody-to-love.mp3',
+    0,
+    8,
+    'F4',
+    349.2
+  ) */
   new Song(
     'Somebody to love',
     'Freddie Mercury',

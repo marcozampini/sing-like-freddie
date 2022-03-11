@@ -160,6 +160,7 @@ a {
   color: black;
 }
 #round .player-game {
+  position: relative;
   display: flex;
   flex-direction: row;
   min-width: 45rem;
@@ -179,9 +180,22 @@ a {
   margin-bottom: 1rem;
   background-color: antiquewhite;
 }
+#round .player .countdown {
+  visibility: visible;
+  opacity: 1;
+  position: absolute;
+  top: 0;
+  left: 20rem;
+  font-size: 10rem;
+}
 #round .player.playing {
   background-color: darkblue;
   border-color: green;
+}
+#round .player.playing .countdown {
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s, opacity 0.5s linear;
 }
 #round .player.playing .on-air {
   background-color: green;

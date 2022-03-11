@@ -5,6 +5,7 @@ export default class Round {
     this.id = id
     this.song = song
     this.score = 0
+    this.intervalID = null
   }
   loadRound(roundSection, playerName, freddieStyle) {
     roundSection.querySelector('.queen').classList.add('playing')
@@ -35,9 +36,21 @@ export default class Round {
       'Are you ready?'
   }
   playRound(roundSection) {
+    roundSection.querySelector('.player .countdown').textContent = ''
+    let counterdown = 3
+
     this.song.playSample()
 
     setTimeout(() => {
+      this.intervalID = setInterval(() => {
+        roundSection.querySelector('.player .countdown').textContent =
+          counterdown
+        counterdown--
+      }, 1000)
+    }, (this.song.sampleDuration - 4) * 1000)
+
+    setTimeout(() => {
+      clearInterval(this.intervalID)
       pitchdetect(this.song.targetFrequency)
       roundSection.querySelector('.queen').classList.remove('playing')
       roundSection.querySelector('.player').classList.add('playing')
