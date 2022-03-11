@@ -1,0 +1,88 @@
+@font-face {
+  font-family: PublicPixel;
+  src: url('fonts/PublicPixel.ttf') format('truetype');
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+body {
+  overflow: hidden;
+}
+body {
+  font-family: PublicPixel, 'Courier New', Courier, monospace;
+  font-size: 1rem;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  /*font-family: Queen, Georgia, 'Times New Roman', Times, serif;*/
+  font-family: PublicPixel, 'Courier New', Courier, monospace;
+  text-align: center;
+}
+h1 {
+  font-size: 2.8rem;
+}
+h2 {
+  font-size: 2.3rem;
+  padding-bottom: 2rem;
+}
+h3 {
+  font-size: 1.8rem;
+  padding-bottom: 2rem;
+}
+h4 {
+  padding-bottom: 1rem;
+}
+a {
+  color: blue;
+  text-decoration: none;
+}
+ul li,
+p {
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+.page {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+}
+.page:nth-of-type(odd) {
+  background-color: #00103f;
+  color: antiquewhite;
+}
+.page:nth-of-type(even) {
+  background-color: antiquewhite;
+  color: #00103f;
+}
+.italy {
+  display: inline-block;
+  width: 1rem;
+  height: 1.5rem;
+}
+.italy.green {
+  background-color: green;
+}
+.italy.white {
+  background-color: white;
+}
+.italy.red {
+  background-color: red;
+}
+.page.thank-you {
+  background-image: url('./images/marco-2018.png');
+  background-position: bottom 0 right 2rem;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
