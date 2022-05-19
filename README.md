@@ -10,7 +10,7 @@ This project has been coded in one week, during the Ironhack Web Development boo
 
 ## How to play
 
-The game has been deployed using GitHub Pages at https://marcozampini.it/sing-like-freddie.
+The game has been deployed using GitHub Pages at <a href="https://marcozampini.it/sing-like-freddie" target="_blank">https://marcozampini.it/sing-like-freddie</a>.
 
 Just authorise to use the microphone of your computer and have fun!
 
@@ -29,4 +29,4 @@ This app meets the following technical requirements:
 
 ## Contact the author
 
-You can contact the author of this game via LinkedIn, at https://www.linkedin.com/in/marcozampini/.
+You can contact the author of this game via LinkedIn, at <a href="https://www.linkedin.com/in/marcozampini" target="_blank">https://www.linkedin.com/in/marcozampini</a>.
