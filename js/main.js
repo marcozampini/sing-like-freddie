@@ -4,7 +4,7 @@ import Round from './classes/round.js'
 import data from './data.js'
 
 // Ask the permission to use the mic to the browser
-/*navigator.mediaDevices.getUserMedia({
+navigator.mediaDevices.getUserMedia({
   audio: {
     mandatory: {
       googEchoCancellation: 'false',
@@ -14,7 +14,7 @@ import data from './data.js'
     },
     optional: [],
   },
-})*/
+})
 
 // Variable creation
 let game
